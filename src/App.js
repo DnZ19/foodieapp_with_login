@@ -15,8 +15,6 @@ function App() {
 
             <div className="inner-container">
 
-
-
                     <Navigation />
                     <Pages/>
 
