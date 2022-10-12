@@ -86,7 +86,7 @@ function Recipe() {
                                         key={ingredient.id}
                                     >
                                         <SingleIngredient
-
+                                            key={ingredient.id}
                                             inputType={"checkbox"}
                                             ingredient={ingredient.original}
                                         />

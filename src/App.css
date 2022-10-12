@@ -1,4 +1,5 @@
 
+
 :root   {
     --main-style-element-color: orange;
 }
@@ -17,6 +18,12 @@ body    {
     justify-content: center;
     align-items: center;
     color: #33312F;
+    background-image: url("/src/assets/Foodie_background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: brightness(60%);
+    border: 1px solid var(--main-style-element-color);
+    margin: 10px;
 }
 
 .outer-container    {
@@ -27,28 +34,23 @@ body    {
     width: 600px;
 
     height: 100%;
-    /*width: 100%;*/
     background: transparent;
-    /*background: linear-gradient(180deg, #e7dfe8 0%, #e7dfe8 100%);*/
     border-radius: 3px;
-
     margin-top: 100px;
+    margin-right: 50%;
+    margin-bottom: 80px;
 }
 
 img {
-
     width: 80px;
     height: 85px;
     box-shadow: 10px 10px 10px rgba(77, 79, 79, 0.4);
     margin-top: 30px;
     border-radius: 5px;
     border: 1px solid var(--main-style-element-color);
-
-
 }
 
 .inner-container    {
-
     padding: 20px;
     border-radius: 5px 5px;
     width: 450px;
@@ -59,7 +61,6 @@ img {
     box-sizing: border-box;
     /*border: 1px solid black;*/
     box-shadow: 10px 25px 20px 10px rgba(77, 79, 79, 0.1);
-
 }
 
 .background-icon-search {
@@ -79,6 +80,4 @@ h1  {
     font-size: 25px;
     font-weight: lighter;
     margin-top: -20px;
-
-
 }

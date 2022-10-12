@@ -49,7 +49,9 @@ function Popular() {
                                     key={recipe.id}
                                 >
                                     <Slide>
-                                        <Card>
+                                        <Card
+                                            key={recipe.id}
+                                        >
                                             <Link
                                                 to={"/recipe/" + recipe.id}
                                             >
