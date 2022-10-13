@@ -1,16 +1,29 @@
 import React from 'react';
 import styled from "styled-components";
-import { useState } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {useState} from "react";
+import {createUserWithEmailAndPassword, getAuth} from "firebase/auth";
 import {Link} from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import {auth} from "../firebase-config";
+import ErrorPopUp from "./ErrorPopUp";
+import DialoguePopUp from "./DialoguePopUp";
 
-
-function Register () {
+function Register() {
 
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+
+    //error handling:
+    const [isOpen, setIsOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    function togglePopup() {
+        setIsOpen(!isOpen);
+    }
+
+    //dialogue
+    const [dialogue, setDialogue] = useState(false);
+    function toggleDialogue() {
+        setDialogue(!dialogue);
+    }
 
     const register = async () => {
 
@@ -24,23 +37,32 @@ function Register () {
             console.log(user);
 
 
-            if (user){
+            if (user) {
                 const delay = 5000;
-                setTimeout(function() {
+                setTimeout(function () {
                     window.location.href = "/login";
                 }, delay);
-                alert("registration is a success, you will be redirected to the login page in 5 seconds!");
+
+                //alert("registration is a success, you will be redirected to the login page in 5 seconds!");
+                toggleDialogue();
+
+
+
             } else {
                 alert("registration failed, please try again")
             }
 
 
         } catch (error) {
-            console.error( error );
+            console.error(error);
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            alert(errorCode && errorMessage);
+            setErrorMessage(errorCode && errorMessage)
+            console.log(errorMessage);
+            togglePopup();
+
+            // alert(errorCode && errorMessage);
         }
     };
 
@@ -48,32 +70,63 @@ function Register () {
         <RegisterForm>
             <h2>Register</h2>
 
-                <FormContainer>
-                    <input placeholder="Email" onChange={( e ) => {setRegisterEmail(e.target.value)}}/>
-                    <input placeholder="Password" onChange={( e ) => {setRegisterPassword(e.target.value)}}/>
+            {isOpen &&
+                <ErrorPopUp
+                    content={<>
+                        <b>Something went wrong!</b>
+                        <h6>{errorMessage}</h6>
+                        <button
+                            onClick={togglePopup}
+                        >Close
+                        </button>
+                    </>}
 
-                    <button
-                        onClick={register}
-                        disabled={!registerEmail || !registerPassword}
+                />}
 
-                    > Sign Up </button>
+            {dialogue &&
+                <DialoguePopUp
+                    content={<>
+                        <b>You're successfully registered!</b>
+                        <h6>You will be redirected to login in 5 seconds...</h6>
+                        <button
+                            onClick={toggleDialogue}
+                        >Close
+                        </button>
+                    </>}
+
+                />}
+
+            <FormContainer>
+                <input placeholder="Email" onChange={(e) => {
+                    setRegisterEmail(e.target.value)
+                }}/>
+                <input placeholder="Password" onChange={(e) => {
+                    setRegisterPassword(e.target.value)
+                }}/>
+
+                <button
+                    onClick={register}
+                    disabled={!registerEmail || !registerPassword}
+
+                > Sign Up
+                </button>
 
 
-                </FormContainer>
+            </FormContainer>
 
-                <p>
-                    Already registered?
-                    <Link
-                        to="/login"
-                        style={{
-                            textDecoration: "none",
-                            color: "var(--main-style-element-color)",
-                            fontSize: 15
-                        }}
+            <p>
+                Already registered?
+                <Link
+                    to="/login"
+                    style={{
+                        textDecoration: "none",
+                        color: "var(--main-style-element-color)",
+                        fontSize: 15
+                    }}
 
-                    > Sign in here!
-                    </Link>
-                </p>
+                > Sign in here!
+                </Link>
+            </p>
 
             {/*{ user ? <p>Registration is a success! Please login <Link to="/login"> here.</Link></p> : ""}*/}
 
@@ -127,5 +180,5 @@ const FormContainer = styled.div`
     margin-top: 20px;
     font-weight: bolder;
   }
-  
+
 `;

@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+Inleiding:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Foodie App is een webapplicatie waarmee je wat handige elementen / functionaliteiten bij elkaar hebt om snel keuzes te
+maken in het proces van eten uitzoeken en daarbij snel overzicht te hebben in wat je ervoor nodig hebt / voor moet
+doen. Hoe gezond is het en past het in mijn voedingseisen?
 
-## Available Scripts
+De data komt uit Spoonacular en wordt verkregen met diverse end points uit deze API.
 
-In the project directory, you can run:
+De App:
 
-### `npm start`
+Onderstaande screenshot laat de homepage zien. Je krijgt automatisch een aantal (6) populaire recepten in een slider te
+zien. Daaronder worden hoog over details van de gerechten getoond om een eerste snelle selectie te kunnen maken. Als je
+hier toevallig al een gerecht ziet waar je meer van wilt weten klik je op de foto en krijg je detail / recept informatie
+te zien.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In de navigatie bar vind je de respectievelijk home, zoek functie, healthy filters, informatie over de app, back button
+en de account icon.
+![](src/assets/Schermafbeelding 2022-10-13 om 10.43.12.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+De zoek functie wijst voor zich. Voer een ingredient of voedselsoort in en vind de daarbij horende resultaten.
+De healthy filter page laat zo'n 30 recepten zien onder het filter dat rechts in het scherm geselecteerd kan worden.
 
-### `npm test`
+Telkens als je dat doet, vraagt de app 30 nieuwe recepten op, doe dit in dit geval niet te vaak anders ben je zo door de
+max van de API heen. Ook hier kan je doorklikken naar recept details.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Hieronder kan je een screenshot zien van de recept detail page. Hier kan je een selectie doen aan de rechterkant van het
+scherm op: Summary, Instructions, Ingredients en Information. Een leuk detail is dat je de Ingredient lijst kunt
+gebruiken als boodschappenlijst dat je netjes kunt afvinken als je door de supermarkt loopt.
 
-### `npm run build`
+De links in de beschrijvingen brengen je naar de externe bron van het recept. Daar kan je vaak nog meer leuke dingen
+vinden over het betreffende gerecht.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](src/assets/Schermafbeelding 2022-10-13 om 10.55.36.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-----------------------
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+De applicatie starten:
 
-### `npm run eject`
+Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de node_modules door het volgende
+commando in de terminal te runnen:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+API keys / .env
+Ik heb in mijn code de API keys beveiligd middels een .env. Deze heb ik in mijn gitignore staan, maar hij neemt hem vaak
+toch nog mee naar Git.
 
-## Learn More
+Vanwege de beperkte quotum op de API heb ik meerdere accounts en dus API keys. Mocht het zo zijn dat er een volloopt
+door gebruik kan ik makkelijk een nieuwe aanleveren.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Registratie / Inlog
+Ik heb ervoor gekozen om met Firebase de registratie en inlog te doen. Dit omdat ik op basis van de gegevens die online
+staan in Git en EdHub onvoldoende verder kwam en moest wachten op de lessen hierover. Ongeduldig en nieuwsgierig als ik
+ben, ben ik toen maar tutorials gaan kijken over Firebase en dat is mij gelukt aan de praat te krijgen. Fijne
+functionaliteit die ik later graag weer gebruik en makkelijk kan uitbreiden.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Ik zal de betreffende docent toe kunnen laten tot Firebase omgeving.
 
-### Code Splitting
+Je kunt je eigen email en ww gebruiken om een account aan te maken. Na dit op de juiste manier te doen word je
+automatisch geredirect naar de inlog pagina en kan je inloggen met je gevens. Er verschijnt een alertbox als je
+succesvol geregistreerd bent. Na inloggen kom je op de boven getoonde home.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Een test account is: test2@test.nl en ww: 1234567
 
-### Analyzing the Bundle Size
+Onder het icoon account kan je zien met welk email adres je bent ingelogd en eventueel uitloggen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -2,10 +2,11 @@ import React from 'react';
 import styled from "styled-components";
 import '../App.css';
 import {useState} from "react";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import {auth} from "../firebase-config";
 import {Link} from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import ErrorPopUp from "./ErrorPopUp";
 
 
 function Login() {
@@ -14,22 +15,32 @@ function Login() {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [checked, setChecked] = useState(false);
+
+    //error handling:
+    const [isOpen, setIsOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    function togglePopup() {
+        setIsOpen(!isOpen);
+    }
+
 
     const auth = getAuth();
 
     onAuthStateChanged(auth, (user) => {
-        if(user) {
+        if (user) {
             const uid = user.uid;
             localStorage.setItem("user", uid);
-            console.log(uid);
+            // console.log(uid);
         }
 
     });
 
 
-    const handleSubmit=()=> {
+    const handleSubmit = () => {
 
-        if (loginEmail && loginPassword){
+        if (loginEmail && loginPassword) {
             localStorage.setItem("emailData", loginEmail);
             localStorage.setItem("passwordData", loginPassword);
 
@@ -49,24 +60,37 @@ function Login() {
             console.log(user);
 
         } catch (error) {
-            console.error(error);
+            //console.error(error);
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            alert(errorCode && errorMessage);
+            setErrorMessage(errorCode && errorMessage)
+            console.log(errorMessage);
+            togglePopup();
+
+            // alert(errorCode && errorMessage);
+
         }
     };
-
-    // const Logout = async () => {
-    //     await signOut(auth);
-    // };
-
 
     return (
 
 
         <LoginForm>
             <h2>Login page</h2>
+
+                {isOpen &&
+                    <ErrorPopUp
+                    content={<>
+                        <b>Something went wrong!</b>
+                        <h6>{errorMessage}</h6>
+                        <button
+                        onClick={togglePopup}
+                        >Close</button>
+                    </>}
+
+                />}
+
 
             <FormContainer>
                 <input
@@ -86,23 +110,38 @@ function Login() {
                     }}
                     required
                 />
+                <div>
+                    <input
+                        type="checkbox"
+                        onChange={(e) => {
+                            setChecked(!checked);
+                        }}
+                        required
+
+
+                    /><p>I agree with the <Link to={"/terms"} style={{color: "var(--main-style-element-color)"}}>terms
+                    and conditions</Link></p>
+                </div>
+
+
                 <button
                     onClick={Login}
-                    disabled={!loginEmail || !loginPassword}
+                    disabled={!loginEmail || !loginPassword || !checked}
 
-                >Login</button>
+                >Login
+                </button>
 
             </FormContainer>
 
             <p>Don't have an account yet? Register
                 <Link
-                to="/register"
-                style={{
-                    textDecoration: "none",
-                    color: "var(--main-style-element-color)",
-                    fontSize: 20
+                    to="/register"
+                    style={{
+                        textDecoration: "none",
+                        color: "var(--main-style-element-color)",
+                        fontSize: 20
 
-                }}
+                    }}
 
                 > here!
                 </Link>
@@ -160,9 +199,31 @@ const FormContainer = styled.div`
     width: 100px;
     margin-top: 20px;
     font-weight: bolder;
-    
+
   }
-  
-  
+
+  div {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    input {
+      width: 20px;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    p {
+      margin: 0;
+      margin-left: 5px;
+    }
+
+  }
+
+
 
 `;

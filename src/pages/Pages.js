@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./Home";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, Redirect} from "react-router-dom";
 import SearchPage from "./SearchPage";
 import Recipe from "./Recipe";
 import Healthy from "./Healthy";
@@ -9,15 +9,21 @@ import About from "./About";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import PrivateRoutes from "../components/PrivateRoute";
+import LandingPage from "./LandingPage";
+import Terms from "../components/Terms";
 
 function Pages()    {
     return  (
 
         <Routes>
 
+            <Route path="/" exact element={<LandingPage />}/>
+            {/*<Route path="/foodie" element={<LandingPage />} />*/}
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/about" element={<About />}/>
+            <Route path="/terms" element={<Terms />}/>
+
 
             <Route element={<PrivateRoutes />}>
                 <Route path="/" exact element={<Home />}/>
