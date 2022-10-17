@@ -3,7 +3,6 @@ import styled from "styled-components";
 import '../App.css';
 import {useState} from "react";
 import {getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
-import {auth} from "../firebase-config";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import ErrorPopUp from "./ErrorPopUp";
@@ -20,12 +19,11 @@ function Login() {
     //error handling:
     const [isOpen, setIsOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-
     function togglePopup() {
         setIsOpen(!isOpen);
     }
 
-
+    //authorisation and logging the credentials for use in other sections (like account page)
     const auth = getAuth();
 
     onAuthStateChanged(auth, (user) => {
@@ -34,12 +32,10 @@ function Login() {
             localStorage.setItem("user", uid);
             // console.log(uid);
         }
-
     });
 
 
     const handleSubmit = () => {
-
         if (loginEmail && loginPassword) {
             localStorage.setItem("emailData", loginEmail);
             localStorage.setItem("passwordData", loginPassword);
@@ -57,7 +53,7 @@ function Login() {
             );
 
             handleSubmit()
-            console.log(user);
+            //console.log(user);
 
         } catch (error) {
             //console.error(error);
@@ -68,8 +64,7 @@ function Login() {
             console.log(errorMessage);
             togglePopup();
 
-            // alert(errorCode && errorMessage);
-
+            // alert(errorCode && errorMessage); // old alert
         }
     };
 
@@ -79,6 +74,7 @@ function Login() {
         <LoginForm>
             <h2>Login page</h2>
 
+            {/*//error handling*/}
                 {isOpen &&
                     <ErrorPopUp
                     content={<>
@@ -140,16 +136,12 @@ function Login() {
                         textDecoration: "none",
                         color: "var(--main-style-element-color)",
                         fontSize: 20
-
                     }}
 
                 > here!
                 </Link>
             </p>
-
         </LoginForm>
-
-
     );
 }
 
@@ -221,9 +213,5 @@ const FormContainer = styled.div`
       margin: 0;
       margin-left: 5px;
     }
-
   }
-
-
-
 `;

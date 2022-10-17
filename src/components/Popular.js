@@ -26,7 +26,6 @@ function Popular() {
         }
     }
 
-
     return (
         <div>
             <Wrapper>
@@ -50,7 +49,7 @@ function Popular() {
                                 >
                                     <Slide>
                                         <Card
-                                            key={recipe.id}
+                                            // key={recipe.id}
                                         >
                                             <Link
                                                 to={"/recipe/" + recipe.id}
@@ -64,6 +63,7 @@ function Popular() {
 
                                     <TitleBar><h4>{recipe.title}</h4></TitleBar>
 
+                                    {/*Bottom part home / slide / info bar section*/}
                                     <InfoBar>
                                         <div key={recipe.id}>
                                             <p>Type of dish: </p>
@@ -72,23 +72,22 @@ function Popular() {
                                                         <h5>{dishType}</h5>
                                                 )
                                             })}
-
                                         </div>
+
                                         <div>
                                             <p>Source: </p>
                                             <h5>{recipe.sourceName}</h5>
                                             {recipe.vegan === true ? <h6>Vegan!</h6> : <h6></h6>}
                                             {recipe.vegetarian === true ? <h6>Vegetarian!</h6> : <h6></h6>}
                                         </div>
+
                                         <div>
                                             <p>Health Score:</p>
                                             <h5>{recipe.healthScore}</h5>
                                             <p>Ready in:</p>
                                             <h5>{recipe.readyInMinutes} min.</h5>
                                         </div>
-
                                     </InfoBar>
-
                                 </SplideSlide>
 
                         );
@@ -111,7 +110,6 @@ const Wrapper = styled.div`
   h3 {
     color: white;
   }
-  
 `;
 
 const Slide = styled.div`
@@ -119,12 +117,9 @@ const Slide = styled.div`
   flex-direction: column;
   justify-content: center;
   box-shadow: none;
-  
-
 `;
 
 const Card = styled.div`
-
   display: flex;
   flex-direction: column;
   min-height: 400px;
@@ -146,7 +141,6 @@ const Card = styled.div`
   }
 
   h4 {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,9 +171,6 @@ const TitleBar = styled.div`
     color: white;
     font-size: 20px;
   }
-  
-  
-
 `;
 
 const InfoBar = styled.div`
@@ -224,7 +215,6 @@ const InfoBar = styled.div`
     margin-top: 5px;
     color: var(--main-style-element-color);
     font-size: 12px;
-    
   }
   
   p {
@@ -232,8 +222,6 @@ const InfoBar = styled.div`
     color: white;
     font-size: 15px;
   }
-
-
 `;
 
 

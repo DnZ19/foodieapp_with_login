@@ -7,6 +7,6 @@ function Home() {
             <Popular />
         </div>
     )
-}
+};
 
 export default Home;

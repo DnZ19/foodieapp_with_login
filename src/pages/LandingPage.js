@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import LandingPageImage from "../assets/Foodie_LandingPage.svg";
 
-
+//landingpage to let the custer land on for the first time..
 
 function LandingPage () {
 
@@ -19,18 +19,17 @@ function LandingPage () {
 
     return (
         <LandingPageContainer>
-
             <LandingPageInnerContainer>
+
+                <p>'FoodieApp saves time and keeps you healthy during your busy workweek...'</p>
+                <h3>-The Times</h3>
+
                 <div>
                     <button onClick={handleClickLogin}>Login</button>
                     <button onClick={handleClickRegister}>Register</button>
 
                 </div>
-
             </LandingPageInnerContainer>
-
-
-
         </LandingPageContainer>
     );
 }
@@ -67,6 +66,21 @@ const LandingPageInnerContainer = styled.div`
   //border: 1px solid black;
   margin-top: -140px;
   
+  p {
+    width: 250px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 18px;
+  }
+  
+  h3 {
+    width: 250px;
+    margin-bottom: 50px;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+  }
+  
   div {
     display: flex;
     flex-direction: column;
@@ -83,11 +97,12 @@ const LandingPageInnerContainer = styled.div`
     border-radius: 5px;
     margin: 10px;
     background-color: var(--main-style-element-color);
-    color: white;
+    color: #1C1E20;
     font-weight: bolder;
     cursor: pointer;
-    
-  }
+    &:hover {
+      background-color: white;
+    }
+  } 
   
-
 `;

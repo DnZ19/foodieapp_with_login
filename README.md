@@ -6,6 +6,8 @@ doen. Hoe gezond is het en past het in mijn voedingseisen?
 
 De data komt uit Spoonacular en wordt verkregen met diverse end points uit deze API.
 
+https://spoonacular.com/food-api/docs
+
 De App:
 
 Onderstaande screenshot laat de homepage zien. Je krijgt automatisch een aantal (6) populaire recepten in een slider te
@@ -52,19 +54,36 @@ toch nog mee naar Git.
 Vanwege de beperkte quotum op de API heb ik meerdere accounts en dus API keys. Mocht het zo zijn dat er een volloopt
 door gebruik kan ik makkelijk een nieuwe aanleveren.
 
+Routes / Pages
+De route structuur heb ik in de Pages file gestopt. Dit houdt de APP.js overzichtelijk voor andere elementen.
+
+
 Registratie / Inlog
 Ik heb ervoor gekozen om met Firebase de registratie en inlog te doen. Dit omdat ik op basis van de gegevens die online
 staan in Git en EdHub onvoldoende verder kwam en moest wachten op de lessen hierover. Ongeduldig en nieuwsgierig als ik
 ben, ben ik toen maar tutorials gaan kijken over Firebase en dat is mij gelukt aan de praat te krijgen. Fijne
 functionaliteit die ik later graag weer gebruik en makkelijk kan uitbreiden.
 
-Ik zal de betreffende docent toe kunnen laten tot Firebase omgeving.
+Ik zal de betreffende docent toe kunnen laten tot Firebase omgeving:
+
+![](src/assets/Schermafbeelding 2022-10-17 om 11.42.58.png)
 
 Je kunt je eigen email en ww gebruiken om een account aan te maken. Na dit op de juiste manier te doen word je
-automatisch geredirect naar de inlog pagina en kan je inloggen met je gevens. Er verschijnt een alertbox als je
-succesvol geregistreerd bent. Na inloggen kom je op de boven getoonde home.
+automatisch geredirect naar de inlog pagina en kan je inloggen met je gegevens. Er verschijnt een alertbox als je
+succesvol geregistreerd bent en die redirect je automatisch door na 5 seconden naar de inlogpagina. Na inloggen kom je
+op de boven getoonde home.
 
-Een test account is: test2@test.nl en ww: 1234567
+Een test account is: test2@test.nl en ww: 1234567, maar maak er gerust zelf een aan. Omdat de procedure nog niet
+helemaal 100% is, maar puur voor eerste illustratie van registreren en inloggen blijft je ww zichtbaar als je het
+invult. Dit is een van de dingen die ik later nog zou uitbreiden, evenals de opties om met social media accounts in te
+kunnen loggen.
 
-Onder het icoon account kan je zien met welk email adres je bent ingelogd en eventueel uitloggen.
+Onder het icoon account kan je zien met welk email adres je bent ingelogd en eventueel uitloggen. Je gegevens worden dan
+weer gewist uit de localStorage.
+
+De alerts in de app had ik eerst geschreven op de systeem alerts, maar die vond ik niet mooi. Deze zijn zelf gebouwd en
+gestyled. Ik heb onderscheid in error alerts en dialogue alerts die aangeven wanneer iets succesvol is bijvoorbeeld.
+
+Ik hoop dat je kan genieten van het eindresultaat. Ik heb vele kleine en grote overwinningen gehad in dit proces :).
+
 

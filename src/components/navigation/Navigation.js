@@ -1,18 +1,20 @@
-import { FaSearch } from "react-icons/fa";
-import { TiArrowBackOutline } from "react-icons/ti"
-import { FiHome } from "react-icons/fi"
-import { NavLink } from "react-router-dom";
-import { GiThreeLeaves } from "react-icons/gi";
-import { MdOutlineManageAccounts } from "react-icons/md"
-import { BsInfoLg } from "react-icons/bs";
+import {FaSearch} from "react-icons/fa";
+import {TiArrowBackOutline} from "react-icons/ti"
+import {FiHome} from "react-icons/fi"
+import {NavLink} from "react-router-dom";
+import {GiThreeLeaves} from "react-icons/gi";
+import {MdOutlineManageAccounts} from "react-icons/md"
+import {BsInfoLg} from "react-icons/bs";
 import styles from "./Navigation.module.css";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 function Navigation() {
 
-    const navLinkStyles = ({ isActive }) => {
-        return  {
+
+    //styling for navbar active state:
+    const navLinkStyles = ({isActive}) => {
+        return {
             border: isActive ? "0.3px solid white" : "",
             boxShadow: isActive ? "1px 1px 10px 1px white" : "none",
             color: isActive ? "var(--main-style-element-color)" : "#EEEBCE",
@@ -49,7 +51,7 @@ function Navigation() {
                 to="/about"
                 style={navLinkStyles}
             >
-                <BsInfoLg />
+                <BsInfoLg/>
             </NavLink>
             <button
                 className={styles["back-button"]}
@@ -61,7 +63,7 @@ function Navigation() {
                 to="/account"
                 style={navLinkStyles}
             >
-                <MdOutlineManageAccounts />
+                <MdOutlineManageAccounts/>
             </NavLink>
 
         </nav>

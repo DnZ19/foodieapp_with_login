@@ -14,12 +14,9 @@ function App() {
             </div>
 
             <div className="inner-container">
-
                     <Navigation />
                     <Pages/>
-
                 <h1>Foodie App</h1>
-
             </div>
         </div>
     </div>

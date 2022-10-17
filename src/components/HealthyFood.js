@@ -4,10 +4,12 @@ import {useState} from "react";
 
 function HealthyFood() {
 
+    //healthy tab, where these filters make the popular dishes filtered by health factors...
+
     const [activeTab, setActiveTab] = useState("vegan");
 
     return (
-        <List>
+        <Filter>
             <NavLink
                 to={"/healthy/Vegan"}
                 style={{textDecoration: "none"}}
@@ -41,14 +43,14 @@ function HealthyFood() {
             > Gluten Free </Button>
             </NavLink>
 
-        </List>
+        </Filter>
     );
 }
 
 export default HealthyFood;
 
 
-const List = styled.div`
+const Filter = styled.div`
   margin-top: 100px;
   margin-left: 380px;
   display: flex;

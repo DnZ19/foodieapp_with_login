@@ -17,14 +17,14 @@ function Pages()    {
 
         <Routes>
 
+            {/*Outside login*/}
             <Route path="/" exact element={<LandingPage />}/>
-            {/*<Route path="/foodie" element={<LandingPage />} />*/}
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/about" element={<About />}/>
             <Route path="/terms" element={<Terms />}/>
 
-
+            {/*Inside login*/}
             <Route element={<PrivateRoutes />}>
                 <Route path="/" exact element={<Home />}/>
                 <Route path="/home" element={<Home />}/>
@@ -36,10 +36,8 @@ function Pages()    {
                 <Route path="/account" element={<Account />}/>
             </Route>
 
-
-
         </Routes>
     )
-}
+};
 
 export default Pages;

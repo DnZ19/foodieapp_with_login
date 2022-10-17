@@ -19,7 +19,7 @@ function Register() {
         setIsOpen(!isOpen);
     }
 
-    //dialogue
+    //dialogue for successful registration
     const [dialogue, setDialogue] = useState(false);
     function toggleDialogue() {
         setDialogue(!dialogue);
@@ -36,19 +36,17 @@ function Register() {
 
             console.log(user);
 
-
             if (user) {
                 const delay = 5000;
                 setTimeout(function () {
                     window.location.href = "/login";
                 }, delay);
 
-                //alert("registration is a success, you will be redirected to the login page in 5 seconds!");
+                //alert("registration is a success, you will be redirected to the login page after 5 seconds!");
                 toggleDialogue();
 
-
-
             } else {
+                //probably redundant but just left it here for thought process purposes...
                 alert("registration failed, please try again")
             }
 
@@ -62,7 +60,7 @@ function Register() {
             console.log(errorMessage);
             togglePopup();
 
-            // alert(errorCode && errorMessage);
+            // alert(errorCode && errorMessage); old alert
         }
     };
 
@@ -70,6 +68,7 @@ function Register() {
         <RegisterForm>
             <h2>Register</h2>
 
+            {/*Error handling*/}
             {isOpen &&
                 <ErrorPopUp
                     content={<>
@@ -80,9 +79,9 @@ function Register() {
                         >Close
                         </button>
                     </>}
-
                 />}
 
+            {/*Dialogue for successful registration*/}
             {dialogue &&
                 <DialoguePopUp
                     content={<>
@@ -93,7 +92,6 @@ function Register() {
                         >Close
                         </button>
                     </>}
-
                 />}
 
             <FormContainer>
@@ -107,10 +105,8 @@ function Register() {
                 <button
                     onClick={register}
                     disabled={!registerEmail || !registerPassword}
-
                 > Sign Up
                 </button>
-
 
             </FormContainer>
 
@@ -123,13 +119,9 @@ function Register() {
                         color: "var(--main-style-element-color)",
                         fontSize: 15
                     }}
-
                 > Sign in here!
                 </Link>
             </p>
-
-            {/*{ user ? <p>Registration is a success! Please login <Link to="/login"> here.</Link></p> : ""}*/}
-
         </RegisterForm>
     );
 }
@@ -151,7 +143,6 @@ const RegisterForm = styled.div`
     color: white;
     margin-top: 20px;
   }
-
 `;
 
 const FormContainer = styled.div`
@@ -180,5 +171,4 @@ const FormContainer = styled.div`
     margin-top: 20px;
     font-weight: bolder;
   }
-
 `;

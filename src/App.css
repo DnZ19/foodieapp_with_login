@@ -1,7 +1,6 @@
-
-
 :root   {
-    --main-style-element-color: orange;
+    /*Theme color*/
+    --main-style-element-color: rgb(255, 165, 0);
 }
 
 *       {
@@ -32,7 +31,6 @@ body    {
     justify-content: stretch;
     align-items: start;
     width: 600px;
-
     height: 100%;
     background: transparent;
     border-radius: 3px;
@@ -58,10 +56,9 @@ img {
     /*background: linear-gradient(#e7dfe8, #e7dfe8);*/
     background: linear-gradient(#1C1E20, #1C1E20);
     opacity: 0.9;
-    /*background: #1C1E20;*/
     box-sizing: border-box;
-    /*border: 1px solid black;*/
-    box-shadow: 10px 25px 20px 10px rgba(77, 79, 79, 0.1);
+    border: 1px solid rgba(77, 79, 79, 0.4);
+    box-shadow: 6px 25px 30px 5px rgba(77, 79, 79, 0.2);
 }
 
 .background-icon-search {

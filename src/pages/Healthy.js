@@ -8,7 +8,6 @@ import axios from "axios";
 function Healthy() {
 
     const [diet, setDiet] = useState([]);
-
     let params = useParams();
 
     async function getHealthyRecipes(diet) {
@@ -21,7 +20,6 @@ function Healthy() {
         } catch (e) {
             console.error(e);
         }
-
     }
 
     useEffect(() => {
@@ -103,8 +101,6 @@ const Card = styled.div`
     width: 100px;
     border-radius: 5px 0 5px 0;
     box-shadow: 0px 0px 0px 3px rgba(77, 79, 79, 0.1);
-
-
   }
 
   a {
@@ -119,6 +115,4 @@ const Card = styled.div`
     //padding: 1rem;
     text-decoration-line: none;
   }
-
-
 `;

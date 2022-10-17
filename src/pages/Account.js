@@ -19,14 +19,11 @@ function Account () {
             <AccountContainer>
                 {
                     getEmail && getPassword
-                        ? <p>You are logged in with
+                        ? <p>You are logged in at account
                             : {getEmail}</p> : ""
                 }
-
                 <button onClick={handleClick}>Sign Out</button>
-
             </AccountContainer>
-
         </AccountBody>
     );
 }
@@ -59,10 +56,10 @@ const AccountContainer = styled.div`
   }
   
   button {
+    border: none;
     border-radius: 5px;
     padding: 5px;
     width: 100px;
     
   }
-
 `;

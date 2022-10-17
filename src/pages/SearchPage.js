@@ -7,6 +7,6 @@ function SearchPage() {
             <Search />
         </div>
     )
-}
+};
 
 export default SearchPage;

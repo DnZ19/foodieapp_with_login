@@ -19,16 +19,6 @@ function Search() {
 
     const navigate = useNavigate();
 
-    //nice to have filter options
-
-    // const [cuisine, setCuisine] = useState("European");
-    //
-    // const cuisineOptions = ["African", "American", "British", "Cajun", "Caribbean", "Chinese", "Eastern European",
-    //     "European", "French", "German", "Greek", "Indian", "Irish", "Italian", "Japanese",
-    //     "Jewish", "Korean", "Latin American", "Mediterranean", "Mexican", "Middle Eastern",
-    //     "Nordic", "Southern", "Spanish", "Thai", "Vietnamese"]
-
-
     async function getRecipe(name) {
 
         try {
@@ -71,20 +61,11 @@ function Search() {
                             placeholder="Food search..."
                             onChange={(e) => setInput(e.target.value)}
                             value={input}
-
                         />
                     </div>
 
+                    {/*// other way for displaying error messages...could refactor this to styled popup dialogue*/}
                     {error && <ErrorMessage>something went wrong...please try again.</ErrorMessage>}
-
-                    {/*Nice to have: some pop up or screen with some filter options------*/}
-
-                    {/*<select onChange={( e ) => setCuisine(e.target.value)} defaultValue={cuisine}>*/}
-                    {/*    {cuisineOptions.map((option, idx) => (*/}
-                    {/*        <option key={idx}>{option}</option>*/}
-                    {/*    ))}*/}
-
-                    {/*</select>*/}
 
                 </FormStyle>
 
@@ -94,7 +75,6 @@ function Search() {
                         <>
                             <Message>No search results...</Message>
                             <Image><GiKnifeFork className="background-icon-search" /></Image>
-
                         </>
                     }
 
@@ -165,7 +145,6 @@ const Wrapper = styled.div`
   h3 {
     margin-bottom: 10px;
   }
-
 `;
 
 const Card = styled.div`
@@ -185,13 +164,10 @@ const Card = styled.div`
     box-shadow: none;
   }
 
-;
-
 `;
 
 const FormStyle = styled.form`
-
-
+  
   div {
     position: relative;
     width: 100%;
@@ -242,8 +218,6 @@ const TitleBar = styled.div`
     color: white;
     font-size: 20px;
   }
-
-
 `;
 
 const InfoBar = styled.div`

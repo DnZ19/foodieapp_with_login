@@ -4,8 +4,6 @@ import styled from "styled-components";
 import "@splidejs/splide/dist/css/splide.min.css";
 import {useParams} from "react-router-dom";
 import React from 'react';
-
-
 import SingleIngredient from "../components/SingleIngredient";
 
 function Recipe() {
@@ -27,9 +25,8 @@ function Recipe() {
         } catch
             (e) {
             console.error(e);
-        }
+        };
     }
-
 
     return (
             <DetailWrapper>
@@ -86,13 +83,12 @@ function Recipe() {
                                         key={ingredient.id}
                                     >
                                         <SingleIngredient
-                                            key={ingredient.id}
+                                            // key={ingredient.id}
                                             inputType={"checkbox"}
                                             ingredient={ingredient.original}
                                         />
                                     </Ingredient>
-
-                                ))}
+                                ))};
                             </ul>
 
                         </ArticleIngredients>
@@ -113,19 +109,14 @@ function Recipe() {
                                 <h3>Diets:</h3>
 
                                 {details.diets.map((diet) => {
-
                                     return (
                                     <p>{diet}</p>
                                     )
                                  })}
-
-
                             </div>
                             <div>
                                 <h3>Health Score:</h3>
                                 <p>{details.healthScore}</p>
-
-
                             </div>
                             <div>
                                 <h3>Dish type:</h3>
@@ -138,7 +129,6 @@ function Recipe() {
                             <div>
                                 <h3>Ready in: </h3>
                                 <p>{details.readyInMinutes} min.</p>
-
                             </div>
                             <div>
                                 <h3>Servings:</h3>
@@ -147,15 +137,12 @@ function Recipe() {
                         </ArticleInformation>
 
                     )}
-
-
-
                 </Info>
 
             </DetailWrapper>
 
     );
-}
+};
 
 export default Recipe;
 

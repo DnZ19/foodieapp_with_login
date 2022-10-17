@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-
 function DialoguePopUp({content}) {
 
     return (
         <DialoguePopUpBox>
             <div>
-                {/*<span onClick={handleClose}>x</span>*/}
                 {content}
             </div>
         </DialoguePopUpBox>
@@ -28,9 +26,6 @@ const DialoguePopUpBox = styled.div`
   background: #00000050;
   width: 410px;
   height: 350px;
-  //top: 100px;
-  //left: 50%;
-  //border: 1px solid var(--main-style-element-color);
   
   b {
     color: var(--main-style-element-color);
@@ -52,8 +47,7 @@ const DialoguePopUpBox = styled.div`
     color: #5b5454;
     font-weight: bolder;
   }
-
-
+  
   div {
 
     
@@ -70,8 +64,5 @@ const DialoguePopUpBox = styled.div`
       overflow: auto;
 
     }
-
-  }
-
 `;
 
