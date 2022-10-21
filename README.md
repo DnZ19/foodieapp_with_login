@@ -64,7 +64,10 @@ staan in Git en EdHub onvoldoende verder kwam en moest wachten op de lessen hier
 ben, ben ik toen maar tutorials gaan kijken over Firebase en dat is mij gelukt aan de praat te krijgen. Fijne
 functionaliteit die ik later graag weer gebruik en makkelijk kan uitbreiden.
 
-Ik zal de betreffende docent toe kunnen laten tot Firebase omgeving:
+Toegang tot Firebase omgeving:
+
+dennis.rijkers@novi-education.nl
+FrontEndIsAwesome2
 
 ![](src/assets/Schermafbeelding 2022-10-17 om 11.42.58.png)
 
