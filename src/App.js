@@ -8,17 +8,17 @@ function App() {
   return (
     <div className="App">
 
-        <div className="outer-container">
-            <div>
+        <main className="outer-container">
+            <header>
                 <img src={Logo} alt="foodie"/>
-            </div>
+            </header>
 
-            <div className="inner-container">
+            <section className="inner-container">
                     <Navigation />
                     <Pages/>
-                <h1>Foodie App</h1>
-            </div>
-        </div>
+                <footer>Foodie App</footer>
+            </section>
+        </main>
     </div>
   );
 }
