@@ -1,3 +1,5 @@
+link naar Git: https://github.com/DnZ19/foodieapp_with_login
+
 Inleiding:
 
 Foodie App is een webapplicatie waarmee je wat handige elementen / functionaliteiten bij elkaar hebt om snel keuzes te
@@ -64,10 +66,16 @@ staan in Git en EdHub onvoldoende verder kwam en moest wachten op de lessen hier
 ben, ben ik toen maar tutorials gaan kijken over Firebase en dat is mij gelukt aan de praat te krijgen. Fijne
 functionaliteit die ik later graag weer gebruik en makkelijk kan uitbreiden.
 
+
+Toegang tot Firebase:
+
+link naar Fb: https://console.firebase.google.com/u/0/project/foodieapp-70fc5/authentication/users?classId=e86c6a63-4b36-4571-9224-1f9f0cf94739&assignmentId=1129d274-fa37-4cda-a16b-dcb1c3a394c1&submissionId=63e0909a-fdec-daba-b59e-e5c601b1bb58
+=======
 Toegang tot Firebase omgeving:
 
 dennis.rijkers@novi-education.nl
 FrontEndIsAwesome2
+
 
 ![](src/assets/Schermafbeelding 2022-10-17 om 11.42.58.png)
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import {createUserWithEmailAndPassword, getAuth} from "firebase/auth";
 import {Link} from "react-router-dom";
 import {auth} from "../firebase-config";
@@ -8,6 +9,8 @@ import ErrorPopUp from "./ErrorPopUp";
 import DialoguePopUp from "./DialoguePopUp";
 
 function Register() {
+
+    const navigate = useNavigate();
 
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
@@ -39,7 +42,8 @@ function Register() {
             if (user) {
                 const delay = 5000;
                 setTimeout(function () {
-                    window.location.href = "/login";
+                    //window.location.href = "/login";
+                    navigate("/login");
                 }, delay);
 
                 //alert("registration is a success, you will be redirected to the login page after 5 seconds!");
